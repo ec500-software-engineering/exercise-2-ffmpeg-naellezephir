@@ -17,9 +17,9 @@ def ffmpeg_convert():
 		curr_file = q.get()
 		vid720 = "ffmpeg -i "+path+"/"+curr_file+" -s hd720 -b:v 1M -r 30 "+outpath+"/"+curr_file[:-4]+"720.mp4"
 		vid480 = "ffmpeg -i "+path+"/"+curr_file+" -s hd720 -b:v 1M -r 30 "+outpath+"/"+curr_file[:-4]+"480.mp4"
-		vid1 = subprocess.call(vid720, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT, shell=True)
+		subprocess.call(vid720, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT, shell=True)
 		print(curr_file + " 720 is finished")
-		vid2 = subprocess.call(vid480, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT, shell=True)
+		subprocess.call(vid480, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT, shell=True)
 		print(curr_file + " 480 is finished")
 
 
