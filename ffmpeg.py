@@ -12,7 +12,7 @@ def fill_q():
 	for file in folder:
 		q.put(file)
 
-def ffmpeg_convert():
+def ffmpeg_convert(q):
 	while not q.empty():
 		curr_file = q.get()
 		vid720 = "ffmpeg -i "+path+"/"+curr_file+" -s hd720 -b:v 1M -r 30 "+outpath+"/"+curr_file[:-4]+"720.mp4"
@@ -26,7 +26,7 @@ def ffmpeg_convert():
 def main():
 	fill_q()
 	for i in range(2):
-		worker = threading.Thread(target=ffmpeg_convert)
+		worker = threading.Thread(target=ffmpeg_convert, args=(q))
 		worker.start()
 
 if __name__ == "__main__":
