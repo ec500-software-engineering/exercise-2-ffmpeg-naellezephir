@@ -1,7 +1,6 @@
 from ffmpeg import ffmpeg_convert
 import queue 
 import pytest
-import duration
 
 def test_ffmpeg(genpat):
 	q = queue.Queue()
