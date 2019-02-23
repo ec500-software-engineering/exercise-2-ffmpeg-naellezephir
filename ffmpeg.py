@@ -30,7 +30,7 @@ def ffmpeg_convert(Q,path):
 def main():
 	q = queue.Queue()
 	fill_q(q)
-	for i in range(2):
+	for i in range(3):
 		worker = threading.Thread(target=ffmpeg_convert, args=(q,Path))
 		worker.start()
 
