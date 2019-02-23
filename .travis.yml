@@ -7,7 +7,7 @@ python:
 
 addons:
   apt:
-    packages: ffmpeg
+    packages: ffmpeg, flake8
 
 install: pip install -e .
 
