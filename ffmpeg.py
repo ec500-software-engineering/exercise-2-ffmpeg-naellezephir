@@ -2,7 +2,7 @@ import queue
 import threading
 import subprocess
 import os
-import tests.duration as duration
+import duration
 
 
 Path = '/Users/naellezephir/Desktop/GitHub/exercise-2/videos'

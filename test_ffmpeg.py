@@ -1,4 +1,4 @@
-from main import ffmpeg_convert
+from ffmpeg import ffmpeg_convert
 import queue 
 import pytest
 
