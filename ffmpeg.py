@@ -6,7 +6,7 @@ import duration
 import sys
 
 
-# Path = '/Users/naellezephir/Desktop/GitHub/exercise-2/videos'
+#Path = '/Users/naellezephir/Desktop/GitHub/exercise-2/videos'
 
 def fill_q(Q,path):
 	folder = os.listdir(path)
@@ -16,8 +16,8 @@ def fill_q(Q,path):
 def ffmpeg_convert(Q,path):
 	while not Q.empty():
 		curr_file = Q.get()
-		vid720 = "ffmpeg -i "+curr_file+" -s hd720 -b:v 1M -r 30 "+curr_file[:-4]+"720.mp4"
-		vid480 = "ffmpeg -i "+curr_file+" -s hd720 -b:v 1M -r 30 "+curr_file[:-4]+"480.mp4"
+		vid720 = "ffmpeg -i "+curr_file+" -s hd720 -b:v 1M -r 30 "+curr_file[:-4]+"_720.mp4"
+		vid480 = "ffmpeg -i "+curr_file+" -s hd720 -b:v 1M -r 30 "+curr_file[:-4]+"_480.mp4"
 		name = curr_file[len(path):]
 		print(name + " 720 is processing")
 		subprocess.call(vid720, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT, shell=True)
