@@ -3,14 +3,15 @@ import threading
 import subprocess
 import os
 import duration
+import sys
 
 
-Path = '/Users/naellezephir/Desktop/GitHub/exercise-2/videos'
+# Path = '/Users/naellezephir/Desktop/GitHub/exercise-2/videos'
 
-def fill_q(Q):
-	folder = os.listdir(Path)
+def fill_q(Q,path):
+	folder = os.listdir(path)
 	for file in folder:
-		Q.put(Path+"/"+file)
+		Q.put(path+"/"+file)
 
 def ffmpeg_convert(Q,path):
 	while not Q.empty():
@@ -28,9 +29,10 @@ def ffmpeg_convert(Q,path):
 
 def main():
 	q = queue.Queue()
-	fill_q(q)
+	path = str(sys.argv[1])
+	fill_q(q,path)
 	for i in range(3):
-		worker = threading.Thread(target=ffmpeg_convert, args=(q,Path))
+		worker = threading.Thread(target=ffmpeg_convert, args=(q,path))
 		worker.start()
 
 if __name__ == "__main__":
