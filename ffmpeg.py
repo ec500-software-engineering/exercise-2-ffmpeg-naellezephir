@@ -6,7 +6,6 @@ import duration
 
 
 Path = '/Users/naellezephir/Desktop/GitHub/exercise-2/videos'
-outpath = '/Users/naellezephir/Desktop/GitHub/exercise-2/videos/finished'
 
 def fill_q(Q):
 	folder = os.listdir(Path)
